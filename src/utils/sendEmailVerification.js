@@ -71,7 +71,7 @@ const GenerateAndSendVerificationEmail = async (user) => {
 
         <p style="margin-top: 30px;">
           Thanks,<br/>
-          <strong>shopsense Team</strong>
+          <strong>SHOPIT Team</strong>
         </p>
       </div>
 
