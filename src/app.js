@@ -8,10 +8,13 @@ const app = express();
 // ✅ Proper CORS setup
 app.use(
   cors({
-    origin: [
-     
-      process.env.CORS_ORIGIN,
-    ],
+   origin: (origin, callback) => {
+  if (!origin || origin === process.env.CORS_ORIGIN) {
+    callback(null, true);
+  } else {
+    callback(new Error("CORS not allowed"));
+  }
+},
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"], // allow all necessary methods
     credentials: true, // allow cookies / auth headers
   })
